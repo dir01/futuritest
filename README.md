@@ -32,6 +32,10 @@ and, optionally, mongo database and collection names
 
     python send_requests.py http://localhost/
 
+8) In order to force log rotation
+
+    sudo logrotate /etc/logrotate.d/nginx -vf
+
 
 DB choice justification
 =======================
