@@ -1,9 +1,9 @@
 server {
-	listen       8081;
-	server_name  dropbox.local;
+	listen       80 default;
+	server_name  futuritest;
 	autoindex on;
 
-	access_log  /tmp/futuritest-access.log my_log_format buffer=8k;
+	access_log  /var/log/nginx/futuritest-access.log my_log_format buffer=32k;
 
 	location / {
 		proxy_set_header X-Real-IP  $remote_addr;
