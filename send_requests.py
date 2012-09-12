@@ -1,13 +1,12 @@
+import argparse
 import random
 import urllib2
 from urlparse import urljoin
 
 from utils import generate_random_string
 
-BASE_URL = 'http://127.0.0.1:8081'
 
-
-def send_request():
+def send_request(BASE_URL):
     opener = urllib2.build_opener()
     user_id = random.randint(0, 12)
     if user_id:
@@ -18,5 +17,9 @@ def send_request():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('url', nargs=1, default='http://ec2-107-21-87-174.compute-1.amazonaws.com/')
+    args = parser.parse_args()
+
     while True:
-        send_request()
+        send_request(args.url[0])
